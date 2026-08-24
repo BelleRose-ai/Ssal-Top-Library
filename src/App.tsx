@@ -150,6 +150,11 @@ export default function App() {
             Copy the email address above and send your request to our team.
           </p>
         </div>
+
+        {/* Footer Banner Ad */}
+        <div className="max-w-6xl mx-auto pb-8">
+          <BannerAd />
+        </div>
       </main>
 
       {/* Footer */}

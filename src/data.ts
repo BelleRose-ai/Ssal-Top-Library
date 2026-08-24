@@ -5,7 +5,7 @@ import { TopikPaper, Textbook } from './types';
 // Easily swap in your actual smartlink and download URLs below.
 // ==========================================
 
-export const AD_SMARTLINK = "https://omg10.com/4/11642451";
+export const AD_SMARTLINK = "https://www.profitableratecpmnetwork.com/c9d12u9g8?key=1b41720a35a51bbfe4d7666de867f4cb";
 
 export const topikPapers: TopikPaper[] = [
   {
