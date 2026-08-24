@@ -39,6 +39,7 @@ export const TopikList: React.FC<TopikListProps> = ({ papers, onOpenDownloadModa
         {filteredPapers.map((paper) => (
           <div
             key={paper.id}
+            style={{ transform: 'translateZ(0)', willChange: 'auto' }}
             className={`border rounded-3xl p-6 shadow-sm transition-all flex flex-col justify-between relative group ${
               paper.isComingSoon
                 ? 'bg-stone-50/90 border-stone-200/60 opacity-85'

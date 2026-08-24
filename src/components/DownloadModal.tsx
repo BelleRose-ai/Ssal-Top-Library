@@ -84,8 +84,8 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
   const progressPercentage = ((7 - countdown) / 7) * 100;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-sm animate-fade-in">
-      <div className="bg-[#FAFAF8] border border-stone-200 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden relative p-6 md:p-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/60 animate-fade-in">
+      <div className="bg-[#FAFAF8] border border-stone-200 w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden relative p-6 md:p-8" style={{ transform: 'translateZ(0)', willChange: 'auto' }}>
         {/* Close Button */}
         <button
           onClick={onClose}

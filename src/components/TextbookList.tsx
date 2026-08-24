@@ -70,6 +70,7 @@ export const TextbookList: React.FC<TextbookListProps> = ({ textbooks, onOpenDow
         {filteredBooks.map((book) => (
           <div
             key={book.id}
+            style={{ transform: 'translateZ(0)', willChange: 'auto' }}
             className="bg-white border border-stone-200/80 rounded-3xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between relative group overflow-hidden"
           >
             <div>
@@ -116,7 +117,7 @@ export const TextbookList: React.FC<TextbookListProps> = ({ textbooks, onOpenDow
                           Jaehoon Yeon and Lucien Brown
                         </span>
                       </div>
-                      <div className="bg-white/10 backdrop-blur-xs px-2 py-1 rounded text-[9px] font-bold text-white border border-white/20">
+                      <div className="bg-white/20 px-2 py-1 rounded text-[9px] font-bold text-white border border-white/20">
                         R
                       </div>
                     </div>
@@ -194,7 +195,7 @@ export const TextbookList: React.FC<TextbookListProps> = ({ textbooks, onOpenDow
                 ) : (
                   <>
                     <div className="flex justify-between items-start">
-                      <span className="text-[10px] uppercase tracking-wider font-bold bg-white/70 px-2 py-0.5 rounded-full backdrop-blur-xs">
+                      <span className="text-[10px] uppercase tracking-wider font-bold bg-white/90 px-2 py-0.5 rounded-full">
                         {book.category}
                       </span>
                       <Bookmark className="w-4 h-4 opacity-60" />
