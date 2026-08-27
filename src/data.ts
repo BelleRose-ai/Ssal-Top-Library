@@ -450,6 +450,7 @@ export const textbooks: Textbook[] = [
     downloadUrl: 'https://drive.google.com/file/d/1sPVFDU81sfwpmiNsvo7De-aNRjPBDNtU/view?usp=sharing',
     coverImageUrl: 'https://i.postimg.cc/VLj2QyRZ/9781635190472.jpg',
     coverStyle: 'sage',
+    tag: 'NEW RELEASE',
   },
   {
     id: 'tb-15',
@@ -462,6 +463,7 @@ export const textbooks: Textbook[] = [
     downloadUrl: 'https://drive.google.com/file/d/16BP0uh0rHWptgaVQh0ZEcHlaMSiUIfBm/view?usp=sharing',
     coverImageUrl: 'https://i.postimg.cc/VLj2QyRZ/9781635190472.jpg',
     coverStyle: 'amber',
+    tag: 'NEW RELEASE',
   },
   {
     id: 'tb-16',
@@ -474,6 +476,7 @@ export const textbooks: Textbook[] = [
     downloadUrl: 'https://drive.google.com/file/d/1ShEIU05QvVLBWhIqUUgwg6NOK6q4LP0N/view?usp=sharing',
     coverImageUrl: 'https://i.postimg.cc/VLj2QyRZ/9781635190472.jpg',
     coverStyle: 'sky',
+    tag: 'NEW RELEASE',
   },
   {
     id: 'tb-17',
@@ -486,5 +489,6 @@ export const textbooks: Textbook[] = [
     downloadUrl: 'https://drive.google.com/file/d/1yDMRRf_5A39IA2cOU2DeK24IDaXgxJe0/view?usp=sharing',
     coverImageUrl: 'https://i.postimg.cc/VLj2QyRZ/9781635190472.jpg',
     coverStyle: 'lavender',
+    tag: 'NEW RELEASE',
   }
 ];

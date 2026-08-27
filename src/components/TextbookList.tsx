@@ -81,12 +81,19 @@ export const TextbookList: React.FC<TextbookListProps> = ({ textbooks, onOpenDow
                 )}`}
               >
                 {book.coverImageUrl ? (
-                  <img
-                    src={book.coverImageUrl}
-                    alt={book.title}
-                    className="w-full h-full object-cover rounded-2xl"
-                    referrerPolicy="no-referrer"
-                  />
+                  <div className="relative w-full h-full">
+                    <img
+                      src={book.coverImageUrl}
+                      alt={book.title}
+                      className="w-full h-full object-cover rounded-2xl"
+                      referrerPolicy="no-referrer"
+                    />
+                    {book.tag && (
+                      <span className="absolute top-2.5 right-2.5 bg-rose-600 text-white text-[9px] font-bold px-2 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        {book.tag}
+                      </span>
+                    )}
+                  </div>
                 ) : book.coverStyle === 'routledge' ? (
                   <div className="relative h-full flex flex-col justify-between py-1">
                     {/* Top right vertical Routledge Comprehensive Grammars text */}

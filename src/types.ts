@@ -29,6 +29,7 @@ export interface Textbook {
   downloadUrl: string;
   coverImageUrl?: string;
   coverStyle: 'rose' | 'lavender' | 'sage' | 'amber' | 'sky' | 'yellow' | 'routledge' | 'billygo' | 'billygo2' | 'billygo3';
+  tag?: string;
 }
 
 export type ActiveTab = 'topik' | 'textbooks';
