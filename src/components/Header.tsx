@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-stone-800 flex items-center gap-3">
             <span className="text-2xl md:text-3xl p-2 bg-rose-100 rounded-2xl shadow-inner">🇰🇷</span>
-            <span>Ssal-Top</span>
+            <span>Ssal-Top Library</span>
           </h1>
           <p className="text-stone-600 text-sm md:text-base mt-1.5 font-normal">
             Free TOPIK Past Papers & Korean Study Textbooks

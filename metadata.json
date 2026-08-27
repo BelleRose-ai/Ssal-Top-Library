@@ -1,7 +1,8 @@
 {
-  "name": "Ssal-Top",
+  "name": "Ssal-Top Library",
   "description": "Free TOPIK Past Papers & Korean Study Textbooks with smart download flow",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
+
 

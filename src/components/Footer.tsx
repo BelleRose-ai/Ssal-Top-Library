@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
           <span className="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold">
             🇰🇷
           </span>
-          <span className="font-semibold text-stone-800 text-sm">Ssal-Top</span>
+          <span className="font-semibold text-stone-800 text-sm">Ssal-Top Library</span>
         </div>
         <p className="max-w-md mx-auto text-stone-500">
           Providing free educational TOPIK past examination papers and beginner to advanced Korean study textbooks for global learners.
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
           <span>Open Educational Resource</span>
         </div>
         <p className="text-[11px] text-stone-400 pt-4">
-          © 2026 Ssal-Top Archive. All trademarks and copyrighted textbook materials belong to their respective publishers.
+          © 2026 Ssal-Top Library Archive. All trademarks and copyrighted textbook materials belong to their respective publishers.
         </p>
       </div>
     </footer>
