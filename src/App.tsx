@@ -7,6 +7,7 @@ import { TopikList } from './components/TopikList';
 import { TextbookList } from './components/TextbookList';
 import { DownloadModal } from './components/DownloadModal';
 import { Footer } from './components/Footer';
+import { NewBooksNotification } from './components/NewBooksNotification';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('topik');
@@ -168,6 +169,9 @@ export default function App() {
         resourceType={modalType}
         targetUrl={modalUrl}
       />
+
+      {/* New Books Added Notification Popup */}
+      <NewBooksNotification setActiveTab={setActiveTab} />
     </div>
   );
 }
