@@ -60,11 +60,14 @@ export const TopikList: React.FC<TopikListProps> = ({ papers, onOpenDownloadModa
                     }`}>
                       {paper.year} • {paper.date}
                     </span>
-                    <h3 className={`text-lg font-bold transition-colors ${
-                      paper.isComingSoon ? 'text-stone-600' : 'text-stone-800 group-hover:text-rose-600'
-                    }`}>
+                    <a
+                      href={`/topik/${paper.id.replace(/^topik-/, '')}`}
+                      className={`text-lg font-bold transition-colors block ${
+                        paper.isComingSoon ? 'text-stone-600' : 'text-stone-800 hover:text-rose-600'
+                      }`}
+                    >
                       {paper.session}
-                    </h3>
+                    </a>
                   </div>
                 </div>
 

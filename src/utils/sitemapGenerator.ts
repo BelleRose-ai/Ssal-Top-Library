@@ -13,32 +13,20 @@ export function generateSitemapXml(): string {
   xml += `    <priority>1.0</priority>\n`;
   xml += `  </url>\n`;
 
-  // Main Sections / Tabs
-  xml += `  <url>\n`;
-  xml += `    <loc>${baseUrl}/#topik</loc>\n`;
-  xml += `    <changefreq>daily</changefreq>\n`;
-  xml += `    <priority>0.9</priority>\n`;
-  xml += `  </url>\n`;
-
-  xml += `  <url>\n`;
-  xml += `    <loc>${baseUrl}/#textbooks</loc>\n`;
-  xml += `    <changefreq>weekly</changefreq>\n`;
-  xml += `    <priority>0.9</priority>\n`;
-  xml += `  </url>\n`;
-
-  // TOPIK Papers
+  // TOPIK Papers (Clean URLs: /topik/91-1)
   topikPapers.forEach((paper) => {
+    const slug = paper.id.replace(/^topik-/, '');
     xml += `  <url>\n`;
-    xml += `    <loc>${baseUrl}/#paper-${paper.id}</loc>\n`;
+    xml += `    <loc>${baseUrl}/topik/${slug}</loc>\n`;
     xml += `    <changefreq>weekly</changefreq>\n`;
     xml += `    <priority>0.8</priority>\n`;
     xml += `  </url>\n`;
   });
 
-  // Textbooks
+  // Textbooks (Clean URLs: /book/tb-1)
   textbooks.forEach((book) => {
     xml += `  <url>\n`;
-    xml += `    <loc>${baseUrl}/#book-${book.id}</loc>\n`;
+    xml += `    <loc>${baseUrl}/book/${book.id}</loc>\n`;
     xml += `    <changefreq>weekly</changefreq>\n`;
     xml += `    <priority>0.8</priority>\n`;
     xml += `  </url>\n`;

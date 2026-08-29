@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ActiveTab } from './types';
 import { topikPapers, textbooks } from './data';
 import { Header } from './components/Header';
@@ -8,8 +8,11 @@ import { TextbookList } from './components/TextbookList';
 import { DownloadModal } from './components/DownloadModal';
 import { Footer } from './components/Footer';
 import { NewBooksNotification } from './components/NewBooksNotification';
+import { TopikDetailView } from './components/TopikDetailView';
+import { TextbookDetailView } from './components/TextbookDetailView';
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [activeTab, setActiveTab] = useState<ActiveTab>('topik');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -18,6 +21,56 @@ export default function App() {
   const [modalTitle, setModalTitle] = useState('');
   const [modalType, setModalType] = useState<'question' | 'answer' | 'audio' | 'book'>('book');
   const [modalUrl, setModalUrl] = useState('');
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Intercept internal link clicks for smooth SPA navigation
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement).closest('a');
+      if (anchor) {
+        const href = anchor.getAttribute('href');
+        if (href && href.startsWith('/') && !href.startsWith('//')) {
+          e.preventDefault();
+          window.history.pushState({}, '', href);
+          setCurrentPath(href);
+        }
+      }
+    };
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, []);
+
+  useEffect(() => {
+    if (currentPath === '/') {
+      document.title = 'Ssal-Top Library - Free TOPIK Past Papers & Korean Study Textbooks';
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute(
+          'content',
+          'Free TOPIK Past Papers & Korean Study Textbooks with smart download flow'
+        );
+      }
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute('href', 'https://ssal-top-library.vercel.app/');
+    }
+  }, [currentPath]);
+
+  const handleBackToLibrary = () => {
+    window.history.pushState({}, '', '/');
+    setCurrentPath('/');
+  };
 
   const handleOpenDownloadModal = (
     title: string,
@@ -29,6 +82,56 @@ export default function App() {
     setModalUrl(url);
     setIsModalOpen(true);
   };
+
+  // Route matching for /topik/:slug
+  if (currentPath.startsWith('/topik/')) {
+    const slug = currentPath.replace('/topik/', '');
+    const paper = topikPapers.find(
+      (p) => p.id === slug || p.id === 'topik-' + slug || p.id.replace('topik-', '') === slug
+    );
+    if (paper) {
+      return (
+        <>
+          <TopikDetailView
+            paper={paper}
+            onBack={handleBackToLibrary}
+            onOpenDownloadModal={handleOpenDownloadModal}
+          />
+          <DownloadModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            resourceTitle={modalTitle}
+            resourceType={modalType}
+            targetUrl={modalUrl}
+          />
+        </>
+      );
+    }
+  }
+
+  // Route matching for /book/:id
+  if (currentPath.startsWith('/book/')) {
+    const bookId = currentPath.replace('/book/', '');
+    const book = textbooks.find((b) => b.id === bookId);
+    if (book) {
+      return (
+        <>
+          <TextbookDetailView
+            book={book}
+            onBack={handleBackToLibrary}
+            onOpenDownloadModal={handleOpenDownloadModal}
+          />
+          <DownloadModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            resourceTitle={modalTitle}
+            resourceType={modalType}
+            targetUrl={modalUrl}
+          />
+        </>
+      );
+    }
+  }
 
   // Filter items based on search query
   const filteredPapers = topikPapers.filter((paper) => {

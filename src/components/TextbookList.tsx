@@ -228,9 +228,12 @@ export const TextbookList: React.FC<TextbookListProps> = ({ textbooks, onOpenDow
                 <span className="text-xs text-stone-500">{book.downloadsCount.toLocaleString()} downloads</span>
               </div>
 
-              <h3 className="text-base font-bold text-stone-800 mb-1.5 group-hover:text-rose-600 transition-colors">
+              <a
+                href={`/book/${book.id}`}
+                className="text-base font-bold text-stone-800 mb-1.5 hover:text-rose-600 transition-colors block"
+              >
                 {book.title}
-              </h3>
+              </a>
 
               <p className="text-xs text-stone-500 mb-6 leading-relaxed line-clamp-2">
                 {book.description}
